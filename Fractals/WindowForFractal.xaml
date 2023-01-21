@@ -1,0 +1,84 @@
+﻿<Window x:Name="fractalWindow" 
+        x:Class="Fractals.WindowFractal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Window1" 
+        Height="450" 
+        Width="800" 
+        SizeChanged="Window_SizeChanged" 
+        ResizeMode="CanResize" 
+        Closed="Window_Closed">
+    <Grid>
+        <ScrollViewer 
+            x:Name="scroll" 
+            HorizontalScrollBarVisibility="Visible" 
+            VerticalScrollBarVisibility="Visible" 
+            Panel.ZIndex="1" 
+            PreviewMouseWheel="MainCanvas_PreviewMouseWheel"
+            >
+
+            <Canvas 
+                x:Name="MainCanvas"                 
+                VerticalAlignment="Stretch"
+                />
+
+        </ScrollViewer>
+
+        <Canvas 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Left" 
+            Height="45" 
+            Width="63" 
+            Margin="0,0,0,19"
+            Panel.ZIndex="2">
+
+            <Label Content="Zoom:      x" Width="79" Height="16" Padding="5,0,5,0" HorizontalContentAlignment="Left" />
+
+            <Label x:Name="LabelValueZoom" Content="1.0" Width="17" Height="16" Padding="0" HorizontalContentAlignment="Center" Canvas.Left="40
+                   " />
+
+            <Button 
+                Height="25" 
+                Width="70" 
+                Content="ScreenShot" 
+                Click="Button_Click" 
+                FontSize="13" Canvas.Top="20"/>
+        </Canvas>
+
+        <Canvas 
+            HorizontalAlignment="Left" 
+            Width="107" 
+            Height="46" 
+            VerticalAlignment="Top"
+            Panel.ZIndex="2">
+            <Label 
+                Height="26" 
+                Width="54" 
+                Content="Глубина" 
+                Canvas.Top="-6"/>
+            <Label 
+                x:Name="LabelForSliderDepthValue" 
+                Canvas.Left="66" 
+                Canvas.Top="-6" 
+                Height="26" 
+                Width="41" 
+                Content="5"/>
+
+            <Slider 
+                x:Name="SliderForDepth" 
+                Width="107" 
+                Canvas.Top="18" 
+                ValueChanged="Slider_ValueChanged" 
+                SmallChange="1" 
+                IsSnapToTickEnabled="True" 
+                TickFrequency="1" 
+                LargeChange="1" 
+                Value="5" 
+                TickPlacement="TopLeft"/>
+        </Canvas>
+
+    </Grid>
+</Window>
